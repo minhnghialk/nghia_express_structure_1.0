@@ -7,16 +7,20 @@ import express from "express";
 const server = express();
 
 // Connect MySQL
-// import mySQL from "./databases/mySQL";
 import { mysqlConnect } from "./databases/mySQL";
 mysqlConnect();
 
-// connection.query("SELECT 1 + 1 AS solution", function (error, results, fields) {
-//   if (error) throw error;
-//   console.log("The solution is: ", results[0].solution);
-// });
+// Body Parser
+import bodyParser from "body-parser";
+server.use(bodyParser.json());
 
-// connection.end();
+// Setup Views
+import viewConfig from "./views";
+server.use("/views", viewConfig);
+
+// Setup Api
+import apiConfig from "./routes";
+server.use("/apis", apiConfig);
 
 server.listen(process.env.SERVER_PORT, () => {
   console.log(

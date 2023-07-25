@@ -27,5 +27,5 @@ function mysqlConnect() {
 
 module.exports = {
   mysqlConnect,
-  //   mySQL,
+  mySQL,
 };

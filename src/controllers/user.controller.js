@@ -32,7 +32,8 @@ module.exports = {
     }
   },
   createUser: async function (req, res) {
-    console.log("đã vào", req.body);
+    // console.log("đã vào", req.body);
+
     let result = await userModel.createUser(req.body);
     if (result.status) {
       return res.status(200).json({
